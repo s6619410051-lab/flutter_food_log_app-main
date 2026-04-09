@@ -9,52 +9,60 @@ class SplashScreenUi extends StatefulWidget {
 }
 
 class _SplashScreenUiState extends State<SplashScreenUi> {
+  @override
   void initState() {
+    Future.delayed(
+      Duration(seconds: 3),
+      () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ShowAllFoodUi(),
+          ),
+        );
+      },
+    );
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) =>
-              ShowAllFoodUi(), // Replace HomeScreen with your actual home screen widget
-        ),
-      );
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xFFFF0000),
-        body: Center(
-            child: Column(
+      backgroundColor: Colors.red,
+      body: Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               'assets/images/logo_food.png',
-              width: 200,
-              height: 200,
+              width: 180,
+              height: 180,
               fit: BoxFit.cover,
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Toriko',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ), // แสดงโลโก้
+            SizedBox(height: 20),
             Text(
-              '❤️💕😁👍👍👍',
+              'กินกัน LOG',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.yellow,
               ),
-            )
+            ),
+            Text(
+              '🍔🍟🌭🍿🍨🧁',
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.yellow,
+              ),
+            ),
+            SizedBox(height: 20),
+            CircularProgressIndicator(
+              color: Colors.yellow,
+            ),
           ],
-        )) // Red color
-        );
+        ),
+      ),
+    );
   }
 }

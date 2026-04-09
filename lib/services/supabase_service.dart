@@ -1,8 +1,39 @@
-//คลาสนี้ใช้เป้นการเขียนดโค้ดคำสั่งที่เกี่ยวกับการเชื่อมต่อกับ Supabase ในอนาคต
+//คลาสนี้ใช้สำหรับการเขียนโค้ดคำสั่งเพื่อทำงานต่างๆ กับ Supabase
+
+import 'package:flutter_food_log_app/models/food.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseService {
-  // สร้าง instance/ตัวแปรสำหรับเชื่อมต่อกับ Supabaseเกี่ยวกับงานต่างๆ
-  final SupabaseClient supabase = Supabase.instance.client;
-  //ส่วนต่อไปเป็นของเมธอดการทำงานต่างๆที่เกี่ยวกับการเชื่อมต่อกับ Supabase เช่น การเพิ่มข้อมูลอาหาร การแสดงข้อมูลอาหาร การแก้ไขข้อมูลอาหาร และการลบข้อมูลอาหาร เป็นต้น
+  //สร้าง Object/Instance/ตัวแทน ที่จะใช้ทำงานต่างๆ กับ Supabase
+  final supabase = Supabase.instance.client;
+
+  //ส่วนของเมธอดการทำงานต่างๆ กับ Supabase
+  //เช่น การเพิ่ม..., การแก้ไข..., การลบ...., การค้นหา-ตรวจสอบ-ดึง-ดู....
+
+  //สร้างเมธอดสำหรับการดึงข้อมูลทั้งหมดจาก food_tb ใน Supabase
+  Future<List<Food>> getAllFood() async {
+    //ดึงข้อมูลทั้งหมดจาก foot_tb ใน Supabase
+    final data = await supabase
+        .from('food_tb')
+        .select('*')
+        .order('foodDate', ascending: false);
+
+    //แปลงข้อมูลที่ได้จาก Supabase ซึ่งเป็น JSON มาใช้ในแอปฯ แล้วส่งผลกลับไป ณ จุดเรียกใช้เมธอด
+    return data.map<Food>((e) => Food.fromJson(e)).toList();
+  }
+
+  //สร้างเมธอดเพิ่มข้อมูลเข้าไปใน food_tb ใน Supabase
+  Future insertFood(Food food) async {
+    await supabase.from('food_tb').insert(food.toJson());
+  }
+
+  //สร้างเมธอดแก้ไขข้อมูลใน food_tb ใน Supabase
+  Future updateFood(String id, Food food) async {
+    await supabase.from('food_tb').update(food.toJson()).eq('id', id);
+  }
+
+  //สร้างเมธอดลบข้อมูลใน food_tb ใน Supabase
+  Future deleteFood(String id) async {
+    await supabase.from('food_tb').delete().eq('id', id);
+  }
 }

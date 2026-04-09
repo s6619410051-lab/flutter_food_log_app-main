@@ -3,16 +3,22 @@ import 'package:flutter_food_log_app/views/splash_screen_ui.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+//-------------------------------
 void main() async {
+  //---------- ตั้งค่าการเชื่อมต่อกับ Supabase ------------
   WidgetsFlutterBinding.ensureInitialized();
+
   await Supabase.initialize(
     url: 'https://haetglfvhyslrjghzllh.supabase.co',
     anonKey:
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhhZXRnbGZ2aHlzbHJqZ2h6bGxoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM3ODc5MTUsImV4cCI6MjA4OTM2MzkxNX0.CibzL4IIfb503b9HKVGRtk5dIKeE6PVxOnggGKdbfGU',
   );
-  runApp(const FlutterFoodLogApp());
+  //-------------------------------------------------
+
+  runApp(FlutterFoodLogApp());
 }
 
+//-------------------------------
 class FlutterFoodLogApp extends StatefulWidget {
   const FlutterFoodLogApp({super.key});
 
