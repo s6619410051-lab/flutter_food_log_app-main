@@ -1,16 +1,12 @@
-# flutter_food_log_app
+## Mobile Application by flutter/Dart
 
-A new Flutter project.
+## แอปพลิเคชั้นเก็บข้อมูลลูกค้าsupabase
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="300" src="https://github.com/user-attachments/assets/985fdc4e-d5fb-440b-87e5-0f3016260c97" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img width="300" src="https://github.com/user-attachments/assets/3e316a3a-c28c-4ab9-bc7f-b0911bacebb4" />
+<br/><br/><br/>
+<img width="300" src="https://github.com/user-attachments/assets/78e7944e-fac2-4407-a921-3639e2be8a7a" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img width="300" src="https://github.com/user-attachments/assets/128959b9-3548-4154-ac00-58eaf8d09d0f" />
+<br/><br/><br/>
